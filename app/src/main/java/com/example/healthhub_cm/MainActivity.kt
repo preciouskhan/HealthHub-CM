@@ -1,47 +1,35 @@
 package com.example.healthhub_cm
 
 import android.os.Bundle
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.example.healthhub_cm.ui.theme.HealthHubCMTheme
+import android.widget.*
+import androidx.appcompat.app.AppCompatActivity
 
-class MainActivity : ComponentActivity() {
+class MainActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContent {
-            HealthHubCMTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
+        setContentView(R.layout.activity_signup)
+
+        val email = findViewById<EditText>(R.id.emailSignup)
+        val password = findViewById<EditText>(R.id.passwordSignup)
+        val confirm = findViewById<EditText>(R.id.confirmPassword)
+        val signupBtn = findViewById<Button>(R.id.signupBtn)
+
+        signupBtn.setOnClickListener {
+
+            val emailText = email.text.toString()
+            val passText = password.text.toString()
+            val confirmText = confirm.text.toString()
+
+            if (emailText.isEmpty() || passText.isEmpty()) {
+                Toast.makeText(this, "Fill all fields", Toast.LENGTH_SHORT).show()
+            }
+            else if (passText != confirmText) {
+                Toast.makeText(this, "Passwords do not match", Toast.LENGTH_SHORT).show()
+            }
+            else {
+                Toast.makeText(this, "Signup successful 🎉", Toast.LENGTH_SHORT).show()
             }
         }
-    }
-}
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    HealthHubCMTheme {
-        Greeting("Android")
     }
 }
