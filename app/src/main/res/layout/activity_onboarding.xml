@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_onboarding">
+
+    <!-- Background decorative circles -->
+    <View
+        android:id="@+id/orb_top_right"
+        android:layout_width="220dp"
+        android:layout_height="220dp"
+        android:background="@drawable/shape_orb"
+        android:alpha="0.07"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="-60dp"
+        android:layout_marginEnd="-60dp"/>
+
+    <View
+        android:id="@+id/orb_bottom_left"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:background="@drawable/shape_orb"
+        android:alpha="0.07"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginBottom="120dp"
+        android:layout_marginStart="-50dp"/>
+
+    <!-- Logo area -->
+    <LinearLayout
+        android:id="@+id/layout_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/layout_cards"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- App icon container -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            app:cardCornerRadius="22dp"
+            app:cardBackgroundColor="#26FFFFFF"
+            app:cardElevation="0dp"
+            android:layout_marginBottom="20dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="💊"
+                android:textSize="36sp"
+                android:gravity="center"/>
+
+        </androidx.cardview.widget.CardView>
+
+        <!-- App name -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="HealthHub CM"
+            android:textColor="#FFFFFF"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:letterSpacing="-0.02"
+            android:fontFamily="@font/syne_bold"
+            android:layout_marginBottom="10dp"/>
+
+        <!-- Tagline -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Find medicines &amp; health products\nnear you in real time"
+            android:textColor="#B3FFFFFF"
+            android:textSize="14sp"
+            android:gravity="center"
+            android:lineSpacingMultiplier="1.4"
+            android:fontFamily="@font/dm_sans_regular"/>
+
+    </LinearLayout>
+
+    <!-- Cards container -->
+    <LinearLayout
+        android:id="@+id/layout_cards"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toTopOf="@id/tv_privacy"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- BUY card -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_buyer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            app:cardCornerRadius="18dp"
+            app:cardBackgroundColor="#FFFFFF"
+            app:cardElevation="12dp"
+            android:foreground="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="18dp">
+
+                <!-- Icon bg -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/icon_bg_buyer"
+                    android:layout_width="52dp"
+                    android:layout_height="52dp"
+                    app:cardCornerRadius="14dp"
+                    app:cardBackgroundColor="@color/green_pale"
+                    app:cardElevation="0dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="🛒"
+                        android:textSize="24sp"
+                        android:gravity="center"/>
+
+                </androidx.cardview.widget.CardView>
+
+                <!-- Label -->
+                <TextView
+                    android:id="@+id/tv_buyer_title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Buy Drugs"
+                    android:textColor="@color/green_primary"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/syne_bold"
+                    android:layout_marginStart="14dp"
+                    android:layout_marginBottom="3dp"
+                    app:layout_constraintStart_toEndOf="@id/icon_bg_buyer"
+                    app:layout_constraintEnd_toStartOf="@id/arrow_buyer"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toTopOf="@id/tv_buyer_desc"/>
+
+                <TextView
+                    android:id="@+id/tv_buyer_desc"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Find health products near you — no account needed"
+                    android:textColor="@color/gray_mid"
+                    android:textSize="12sp"
+                    android:lineSpacingMultiplier="1.3"
+                    android:fontFamily="@font/dm_sans_regular"
+                    android:layout_marginStart="14dp"
+                    app:layout_constraintStart_toEndOf="@id/icon_bg_buyer"
+                    app:layout_constraintEnd_toStartOf="@id/arrow_buyer"
+                    app:layout_constraintTop_toBottomOf="@id/tv_buyer_title"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+                <!-- Arrow -->
+                <TextView
+                    android:id="@+id/arrow_buyer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="›"
+                    android:textColor="@color/green_primary"
+                    android:textSize="26sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- SELL card -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_seller"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="18dp"
+            app:cardBackgroundColor="#1AFFFFFF"
+            app:cardElevation="0dp"
+            android:foreground="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true">
+
+            <!-- Stroke border overlay -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="18dp"
+                android:background="@drawable/bg_seller_card">
+
+                <!-- Icon bg -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/icon_bg_seller"
+                    android:layout_width="52dp"
+                    android:layout_height="52dp"
+                    app:cardCornerRadius="14dp"
+                    app:cardBackgroundColor="#26FFFFFF"
+                    app:cardElevation="0dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="🏪"
+                        android:textSize="24sp"
+                        android:gravity="center"/>
+
+                </androidx.cardview.widget.CardView>
+
+                <!-- Label -->
+                <TextView
+                    android:id="@+id/tv_seller_title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Sell Drugs"
+                    android:textColor="#FFFFFF"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/syne_bold"
+                    android:layout_marginStart="14dp"
+                    android:layout_marginBottom="3dp"
+                    app:layout_constraintStart_toEndOf="@id/icon_bg_seller"
+                    app:layout_constraintEnd_toStartOf="@id/arrow_seller"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toTopOf="@id/tv_seller_desc"/>
+
+                <TextView
+                    android:id="@+id/tv_seller_desc"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Register your shop and manage your stock"
+                    android:textColor="#99FFFFFF"
+                    android:textSize="12sp"
+                    android:lineSpacingMultiplier="1.3"
+                    android:fontFamily="@font/dm_sans_regular"
+                    android:layout_marginStart="14dp"
+                    app:layout_constraintStart_toEndOf="@id/icon_bg_seller"
+                    app:layout_constraintEnd_toStartOf="@id/arrow_seller"
+                    app:layout_constraintTop_toBottomOf="@id/tv_seller_title"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+                <!-- Arrow -->
+                <TextView
+                    android:id="@+id/arrow_seller"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="›"
+                    android:textColor="#99FFFFFF"
+                    android:textSize="26sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
+    <!-- Privacy note -->
+    <TextView
+        android:id="@+id/tv_privacy"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="🔒 Your privacy is protected — no tracking, no mandatory accounts"
+        android:textColor="#73FFFFFF"
+        android:textSize="11sp"
+        android:gravity="center"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginBottom="32dp"
+        android:fontFamily="@font/dm_sans_regular"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
