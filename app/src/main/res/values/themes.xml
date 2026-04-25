@@ -1,5 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <style name="Theme.HealthHubCM" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/green_primary</item>
+        <item name="colorPrimaryVariant">@color/green_light</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/oxblood</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+    </style>
 
-    <style name="Theme.HealthHubCM" parent="android:Theme.Material.Light.NoActionBar" />
+    <!-- Onboarding: no action bar, full green screen -->
+    <style name="Theme.HealthHubCM.Onboarding" parent="Theme.HealthHubCM">
+        <item name="android:windowBackground">@color/green_primary</item>
+    </style>
 </resources>

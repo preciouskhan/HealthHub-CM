@@ -1,3 +1,12 @@
+import androidx.compose.ui.graphics.Color
+
+val Purple40 = Color(0xFF007628)
+val PurpleGrey40 = Color(0xFF2E7D32)
+val Pink40 = Color(0xFF004D40)
+
+val Purple80 = Color(0xFF81C784)
+val PurpleGrey80 = Color(0xFF66BB6A)
+val Pink80 = Color(0xFF1B5E20)
 package com.example.healthhub_cm.ui.theme
 
 import android.app.Activity
