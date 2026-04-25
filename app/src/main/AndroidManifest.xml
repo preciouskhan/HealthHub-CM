@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.healthhub_cm">
+    package="com.healthhub.cm">
 
     <!-- Permissions -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
@@ -32,10 +32,10 @@
             android:exported="false"
             android:screenOrientation="portrait"/>
 
-        <!-- Coursemate's activities — leave these for them -->
-        <activity android:name=".ui.ResultActivity"/>
-        <activity android:name=".ui.SellerActivity"/>
-        <activity android:name=".ui.BuyerActivity"/>
+        <activity
+            android:name=".SellerRegisterActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
 
     </application>
 

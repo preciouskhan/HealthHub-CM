@@ -1,4 +1,4 @@
-package com.example.healthhub_cm
+package com.healthhub.cm
 
 import android.Manifest
 import android.content.Intent
