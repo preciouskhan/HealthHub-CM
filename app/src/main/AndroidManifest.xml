@@ -32,10 +32,19 @@
             android:exported="false"
             android:screenOrientation="portrait"/>
 
-        <activity
-            android:name=".SellerRegisterActivity"
-            android:exported="false"
-            android:screenOrientation="portrait"/>
+        <!-- Coursemate's activities — leave these for them -->
+        <activity android:name=".ui.ResultActivity"/>
+        <activity android:name=".ui.SellerActivity"/>
+        <activity android:name=".ui.BuyerActivity"/>
+
+        <!-- Flow Activities -->
+        <activity android:name=".DrugSearchActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".PharmacyResultsActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".PlaceOrderActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".OrderConfirmationActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".SellerLoginActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".SellerRegisterActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".SellerDashboardActivity" android:screenOrientation="portrait"/>
 
     </application>
 

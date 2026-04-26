@@ -34,10 +34,10 @@ class OnboardingActivity : AppCompatActivity() {
             }
         }
 
-        // Seller card → go to SellerRegisterActivity
+        // Seller card → go to SellerLoginActivity
         cardSeller.setOnClickListener {
             animateCardClick(it) {
-                val intent = Intent(this, SellerRegisterActivity::class.java)
+                val intent = Intent(this, SellerLoginActivity::class.java)
                 startActivity(intent)
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
             }

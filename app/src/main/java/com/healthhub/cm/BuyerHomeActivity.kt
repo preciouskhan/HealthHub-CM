@@ -132,7 +132,12 @@ class BuyerHomeActivity : AppCompatActivity() {
 
         // Scan button in search bar
         findViewById<TextView>(R.id.btn_scan).setOnClickListener {
-            // TODO: startActivity(Intent(this, ScannerActivity::class.java))
+            startActivity(Intent(this, DrugSearchActivity::class.java))
+        }
+
+        // Search Bar click
+        findViewById<CardView>(R.id.card_search).setOnClickListener {
+            startActivity(Intent(this, DrugSearchActivity::class.java))
         }
     }
 
@@ -146,7 +151,7 @@ class BuyerHomeActivity : AppCompatActivity() {
         ).forEach { cardId ->
             findViewById<CardView>(cardId).setOnClickListener {
                 animateCard(it as CardView) {
-                    // TODO: navigate to SearchResultsActivity with product name
+                    startActivity(Intent(this@BuyerHomeActivity, DrugSearchActivity::class.java))
                 }
             }
         }
