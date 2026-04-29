@@ -84,6 +84,17 @@
         android:layout_marginTop="16dp"
         android:layout_marginBottom="8dp"/>
 
+    <Button
+        android:id="@+id/btn_add_listing"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:text="Scan &amp; Publish Drug"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#0F766E"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginBottom="18dp" />
+
     <!-- Empty state -->
     <TextView
         android:id="@+id/tv_empty"
@@ -102,11 +113,46 @@
         android:layout_height="match_parent">
 
         <LinearLayout
-            android:id="@+id/ll_orders"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="16dp"/>
+            android:padding="16dp">
+
+            <LinearLayout
+                android:id="@+id/ll_orders"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="YOUR PUBLISHED PRODUCTS"
+                android:textColor="#7A8F7D"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.1"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="8dp"/>
+
+            <TextView
+                android:id="@+id/tv_listing_empty"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="No published products yet. Use &quot;Scan &amp; Publish Drug&quot; to add one."
+                android:textColor="#AAB8AC"
+                android:textSize="15sp"
+                android:gravity="center"
+                android:padding="20dp"
+                android:visibility="gone" />
+
+            <LinearLayout
+                android:id="@+id/ll_listings"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+
+        </LinearLayout>
 
     </ScrollView>
 

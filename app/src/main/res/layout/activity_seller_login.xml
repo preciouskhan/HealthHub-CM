@@ -54,7 +54,7 @@
             android:layout_width="match_parent"
             android:layout_height="56dp"
             android:hint="Enter PIN"
-            android:hintTextColor="#80FFFFFF"
+            android:textColorHint="#80FFFFFF"
             android:textColor="#FFFFFF"
             android:textSize="20sp"
             android:gravity="center"

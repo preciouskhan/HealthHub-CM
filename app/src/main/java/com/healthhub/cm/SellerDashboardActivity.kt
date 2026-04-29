@@ -1,5 +1,6 @@
 package com.healthhub.cm
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.WindowManager
 import android.widget.*
@@ -7,6 +8,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowCompat
 
 class SellerDashboardActivity : AppCompatActivity() {
+
+    private lateinit var llListings: LinearLayout
+    private lateinit var tvListingEmpty: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -18,12 +22,21 @@ class SellerDashboardActivity : AppCompatActivity() {
         setContentView(R.layout.activity_seller_dashboard)
 
         findViewById<ImageView>(R.id.btn_back).setOnClickListener { finish() }
+        findViewById<Button>(R.id.btn_add_listing).setOnClickListener {
+            startActivity(Intent(this, SellerScanActivity::class.java))
+        }
+
+        llListings = findViewById(R.id.ll_listings)
+        tvListingEmpty = findViewById(R.id.tv_listing_empty)
+
         loadOrders()
+        loadListings()
     }
 
     override fun onResume() {
         super.onResume()
         loadOrders()
+        loadListings()
     }
 
     private fun loadOrders() {
@@ -93,6 +106,25 @@ class SellerDashboardActivity : AppCompatActivity() {
             }
 
             llOrders.addView(card)
+        }
+    }
+
+    private fun loadListings() {
+        llListings.removeAllViews()
+        val listings = ListingManager.getAllListings(this)
+
+        if (listings.isEmpty()) {
+            tvListingEmpty.visibility = android.view.View.VISIBLE
+            return
+        }
+
+        tvListingEmpty.visibility = android.view.View.GONE
+        listings.reversed().forEach { listing ->
+            val card = layoutInflater.inflate(R.layout.item_seller_listing_card, llListings, false)
+            card.findViewById<TextView>(R.id.tv_listing_drug_name).text = listing.drugName
+            card.findViewById<TextView>(R.id.tv_listing_drug_price).text = "XAF ${listing.price.toInt()} ${listing.unit}"
+            card.findViewById<TextView>(R.id.tv_listing_subtitle).text = "Published seller price"
+            llListings.addView(card)
         }
     }
 }

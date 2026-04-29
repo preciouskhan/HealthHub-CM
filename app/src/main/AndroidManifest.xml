@@ -45,6 +45,7 @@
         <activity android:name=".SellerLoginActivity" android:screenOrientation="portrait"/>
         <activity android:name=".SellerRegisterActivity" android:screenOrientation="portrait"/>
         <activity android:name=".SellerDashboardActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".SellerScanActivity" android:screenOrientation="portrait"/>
 
     </application>
 

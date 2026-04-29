@@ -58,7 +58,12 @@ class DrugSearchActivity : AppCompatActivity() {
             card.findViewById<TextView>(R.id.tv_drug_name).text = drug.name
             card.findViewById<TextView>(R.id.tv_drug_category).text = drug.category
             card.findViewById<TextView>(R.id.tv_drug_desc).text = drug.description
-            card.findViewById<TextView>(R.id.tv_drug_price).text = "XAF ${drug.price.toInt()} ${drug.unit}"
+            val listing = ListingManager.getListingForDrug(this, drug.id)
+            card.findViewById<TextView>(R.id.tv_drug_price).text = if (listing != null) {
+                "XAF ${listing.price.toInt()} ${drug.unit}"
+            } else {
+                "XAF ${drug.price.toInt()} ${drug.unit}"
+            }
 
             card.findViewById<Button>(R.id.btn_find_pharmacy).setOnClickListener {
                 val intent = Intent(this, PharmacyResultsActivity::class.java)

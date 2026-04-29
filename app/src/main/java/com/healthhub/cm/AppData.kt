@@ -69,6 +69,7 @@ object AppData {
     fun searchDrugs(query: String): List<Drug> {
         if (query.isBlank()) return drugs
         return drugs.filter {
+            it.id.contains(query, ignoreCase = true) ||
             it.name.contains(query, ignoreCase = true) ||
             it.category.contains(query, ignoreCase = true) ||
             it.description.contains(query, ignoreCase = true)
@@ -123,5 +124,42 @@ object OrderManager {
 
     fun generateOrderId(): String {
         return "ORD-${System.currentTimeMillis()}"
+    }
+}
+
+object ListingManager {
+
+    private const val PREF_NAME = "healthhub_listings"
+    private const val KEY_LISTINGS = "listings"
+    private val gson = Gson()
+
+    private fun getPrefs(context: Context): SharedPreferences {
+        return context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE)
+    }
+
+    fun getAllListings(context: Context): MutableList<SellerListing> {
+        val json = getPrefs(context).getString(KEY_LISTINGS, null) ?: return mutableListOf()
+        val type = object : TypeToken<MutableList<SellerListing>>() {}.type
+        return gson.fromJson(json, type)
+    }
+
+    fun saveListing(context: Context, listing: SellerListing) {
+        val listings = getAllListings(context)
+        val existing = listings.indexOfFirst { it.drugId == listing.drugId }
+        if (existing != -1) {
+            listings[existing] = listing
+        } else {
+            listings.add(listing)
+        }
+        val json = gson.toJson(listings)
+        getPrefs(context).edit().putString(KEY_LISTINGS, json).apply()
+    }
+
+    fun getListingForDrug(context: Context, drugId: String): SellerListing? {
+        return getAllListings(context).firstOrNull { it.drugId == drugId }
+    }
+
+    fun generateListingId(): String {
+        return "LIST-${System.currentTimeMillis()}"
     }
 }

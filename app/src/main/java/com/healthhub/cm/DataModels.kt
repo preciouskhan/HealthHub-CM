@@ -33,3 +33,12 @@ data class Order(
     val status: String, // "pending", "accepted", "rejected"
     val timestamp: Long
 )
+
+data class SellerListing(
+    val id: String,
+    val drugId: String,
+    val drugName: String,
+    val price: Double,
+    val unit: String,
+    val timestamp: Long
+)
